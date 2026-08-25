@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Call Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M 50 30 L 50 70 M 30 50 L 70 50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="50" cy="50" r="8" fill="currentColor"/>
+                </svg>
+                <h1>Intelligent Call Scammer</h1>
+            </div>
+            <p class="tagline">Protect Your Calls from Fraud</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="card info-card">
+                <svg class="info-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/>
+                </svg>
+                <h2>How It Works</h2>
+                <p>Upload an audio recording of a phone call, and our AI-powered system will analyze it to detect if it's a fraudulent or legitimate call.</p>
+            </div>
+
+            <div class="card upload-card">
+                <div class="upload-section">
+                    <svg class="upload-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+                    </svg>
+                    <h2>Upload Audio File</h2>
+                    <p class="upload-text">Supported formats: WAV, MP3, OGG, FLAC</p>
+                    
+                    <div class="file-input-wrapper">
+                        <input type="file" id="audioFile" accept=".wav,.mp3,.ogg,.flac,.m4a">
+                        <label for="audioFile" class="file-input-label">
+                            <span class="file-icon">📁</span>
+                            <span>Choose Audio File</span>
+                        </label>
+                    </div>
+                    <div id="fileName" class="file-name"></div>
+                </div>
+
+                <button class="analyze-btn" onclick="uploadAudio()">
+                    <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5v14l11-7z" fill="currentColor"/>
+                    </svg>
+                    Analyze Call
+                </button>
+            </div>
+
+            <div id="result" class="result-card hidden">
+                <div id="resultContent"></div>
+            </div>
+
+            <div class="card stats-card">
+                <h3>Why Choose Us?</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-icon">🛡️</span>
+                        <span class="stat-text">High Accuracy</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">⚡</span>
+                        <span class="stat-text">Fast Analysis</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">🔒</span>
+                        <span class="stat-text">Secure & Private</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">📊</span>
+                        <span class="stat-text">AI Powered</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card helpline-card">
+                <h3>🚨 Report Fraud</h3>
+                <p><strong>National Cybercrime Helpline:</strong></p>
+                <p class="helpline-number">1930</p>
+                <p class="helpline-text">Available 24/7 for reporting cyber crimes and fraud calls</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Call Guardian. Protecting you from fraud calls.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

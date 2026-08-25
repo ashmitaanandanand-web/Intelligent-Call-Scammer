@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Call Guardian</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M 50 30 L 50 70 M 30 50 L 70 50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="50" cy="50" r="8" fill="currentColor"/>
+                </svg>
+                <h1>Intelligent Call Scammer</h1>
+            </div>
+            <p class="tagline">Protect Your Calls from Fraud</p>
+        </div>
+        <div class="nav-buttons">
+            <span class="user-welcome">Welcome, <span id="username"></span>!</span>
+            <a href="/logout" class="btn-nav btn-logout">Logout</a>
+        </div>
+    </header>
+
+    <main class="main-content dashboard-page">
+        <div class="container">
+            <div class="hero-card card">
+                <div class="dashboard-header">
+                    <h2>Advanced Fraud Call Detection System</h2>
+                    <p>Protect yourself from scam calls with AI-powered analysis. Upload call recordings and get fraud alerts in seconds.</p>
+                    
+                </div>
+            </div>
+
+            <div class="card info-card">
+                <svg class="info-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/>
+                </svg>
+                <h3>How to Use</h3>
+                <p>Upload an audio recording of your phone call in WAV format only. Our AI will analyze the conversation and detect if it's a fraudulent or legitimate call.</p>
+            </div>
+
+            <div class="card upload-card">
+                <div class="upload-section">
+                    <svg class="upload-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"/>
+                    </svg>
+                    <h2>Upload Audio File</h2>
+                    <p class="upload-text">Supported format: WAV only</p>
+                    
+                    <div class="mobile-input-wrapper">
+                        <input type="tel" id="mobileNumber" placeholder="Enter mobile number (10 digits)" pattern="[0-9]{10}" maxlength="10">
+                        <label for="mobileNumber" class="mobile-label">📱 Mobile Number</label>
+                    </div>
+                    <div id="mobileStatus" class="mobile-status hidden"></div>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="audioFile" accept=".wav">
+                        <label for="audioFile" class="file-input-label">
+                            <span class="file-icon">📁</span>
+                            <span>Choose Audio File</span>
+                        </label>
+                    </div>
+                    <div id="fileName" class="file-name"></div>
+                </div>
+
+                <button class="analyze-btn" onclick="uploadAudio()">
+                    <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5v14l11-7z" fill="currentColor"/>
+                    </svg>
+                    Analyze Call
+                </button>
+            </div>
+
+            <div id="result" class="result-card hidden">
+                <div id="resultContent"></div>
+            </div>
+
+            <div class="card stats-card">
+                <h3>About Our System</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-icon">🎯</span>
+                        <span class="stat-text">98% Accuracy</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">⚡</span>
+                        <span class="stat-text">Real-time Analysis</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">🔒</span>
+                        <span class="stat-text">Secure & Private</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">🌐</span>
+                        <span class="stat-text">Multi-Format Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Text Analysis -->
+            <div class="card test-card">
+                <h3>Test with Text Input</h3>
+                <p>Test the fraud detection model directly with text input</p>
+                
+                <div class="test-input-section">
+                    <textarea id="testText" placeholder="Enter text to analyze for fraud detection..." rows="4"></textarea>
+                    <button class="test-btn" onclick="testTextPrediction()">
+                        <span class="btn-icon">🔍</span>
+                        Analyze Text
+                    </button>
+                </div>
+                
+                <div id="testResult" class="test-result hidden"></div>
+            </div>
+
+            <div class="card helpline-card">
+                <h3>🚨 Report Fraud</h3>
+                <p><strong>National Cybercrime Helpline:</strong></p>
+                <p class="helpline-number">1930</p>
+                <p class="helpline-text">Available 24/7 for reporting cyber crimes and fraud calls</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Call Guardian. Protecting you from fraud calls.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Get username from cookie/session
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch the username - the server will provide it via session
+            fetch('/api/user')
+                .then(r => r.json())
+                .then(data => {
+                    if (data.username) {
+                        document.getElementById('username').textContent = data.username;
+                    }
+                })
+                .catch(() => {
+                    document.getElementById('username').textContent = 'User';
+                });
+        });
+    </script>
+</body>
+</html>

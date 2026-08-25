@@ -1,0 +1,38 @@
+{
+  "1234567890": {
+    "prediction": "fraud",
+    "text": "your account has been blocked to again access the account we have send you an OTP please tell me the OTP",
+    "timestamp": 1775996452.561289,
+    "fraud_probability": 1.0,
+    "safe_probability": 0.0,
+    "keyword_boost": 0.4,
+    "threshold": 0.25
+  },
+  "1234657890": {
+    "prediction": "fraud",
+    "text": "you have one 1000 cash claim win win",
+    "timestamp": 1775997389.7654912,
+    "fraud_probability": 1.0,
+    "safe_probability": 0.0,
+    "keyword_boost": 0.15,
+    "threshold": 0.25
+  },
+  "1342567890": {
+    "prediction": "fraud",
+    "text": "your account has been blocked to again access the account we have send you an OTP please tell me the OTP",
+    "timestamp": 1775999836.755487,
+    "fraud_probability": 1.0,
+    "safe_probability": 0.0,
+    "keyword_boost": 0.4,
+    "threshold": 0.25
+  },
+  "1423567890": {
+    "prediction": "fraud",
+    "text": "you have one 1000 cash claim win win",
+    "timestamp": 1776066046.138104,
+    "fraud_probability": 1.0,
+    "safe_probability": 0.0,
+    "keyword_boost": 0.15,
+    "threshold": 0.25
+  }
+}
